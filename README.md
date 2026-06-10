@@ -51,4 +51,22 @@ Non è richiesto il salvataggio su file o database: i dati possono restare in me
 
 Per eseguire i test, chiamare temporaneamente `TestNegozioOnline.EseguiTuttiITest()` dentro `Main` al posto di `applicazione.Avvia()`.
 
+Esempio:
+
+```csharp
+public static void Main()
+{
+    TestNegozioOnline.EseguiTuttiITest();
+}
+```
+
+Poi eseguire dalla cartella del template:
+
+```bash
+dotnet run --project NegozioOnlineTemplate.csproj
+```
+
+Se compare l'errore `The name 'TestNegozioOnline' does not exist in the current context`, significa che `TestNegozioOnline.cs` non è nello stesso progetto di `Program.cs`.
+Controllare che entrambi i file siano nella stessa cartella del file `NegozioOnlineTemplate.csproj`, oppure aggiungere manualmente `TestNegozioOnline.cs` al progetto dall'IDE.
+
 I test stampano `[PASS]`, `[FAIL]` oppure `[FAIL - TODO]`. I `FAIL - TODO` indicano i metodi ancora lasciati vuoti nel template.

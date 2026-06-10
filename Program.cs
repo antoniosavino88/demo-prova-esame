@@ -20,7 +20,8 @@ public class Program
     {
         // Punto di ingresso della Console App.
         ApplicazioneNegozio applicazione = new ApplicazioneNegozio();
-        applicazione.Avvia();
+        // applicazione.Avvia();
+        TestNegozioOnline.EseguiTuttiITest();
     }
 }
 

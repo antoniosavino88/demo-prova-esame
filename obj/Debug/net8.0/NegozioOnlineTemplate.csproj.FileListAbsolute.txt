@@ -1,0 +1,15 @@
+/Users/ncdaam/Desktop/template_esame_negozio_online/obj/Debug/net8.0/NegozioOnlineTemplate.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ncdaam/Desktop/template_esame_negozio_online/obj/Debug/net8.0/NegozioOnlineTemplate.AssemblyInfoInputs.cache
+/Users/ncdaam/Desktop/template_esame_negozio_online/obj/Debug/net8.0/NegozioOnlineTemplate.AssemblyInfo.cs
+/Users/ncdaam/Desktop/template_esame_negozio_online/obj/Debug/net8.0/NegozioOnlineTemplate.csproj.CoreCompileInputs.cache
+/Users/ncdaam/Desktop/template_esame_negozio_online/obj/Debug/net8.0/NegozioOnlineTemplate.sourcelink.json
+/Users/ncdaam/Desktop/template_esame_negozio_online/bin/Debug/net8.0/NegozioOnlineTemplate
+/Users/ncdaam/Desktop/template_esame_negozio_online/bin/Debug/net8.0/NegozioOnlineTemplate.deps.json
+/Users/ncdaam/Desktop/template_esame_negozio_online/bin/Debug/net8.0/NegozioOnlineTemplate.runtimeconfig.json
+/Users/ncdaam/Desktop/template_esame_negozio_online/bin/Debug/net8.0/NegozioOnlineTemplate.dll
+/Users/ncdaam/Desktop/template_esame_negozio_online/bin/Debug/net8.0/NegozioOnlineTemplate.pdb
+/Users/ncdaam/Desktop/template_esame_negozio_online/obj/Debug/net8.0/NegozioOnlineTemplate.dll
+/Users/ncdaam/Desktop/template_esame_negozio_online/obj/Debug/net8.0/refint/NegozioOnlineTemplate.dll
+/Users/ncdaam/Desktop/template_esame_negozio_online/obj/Debug/net8.0/NegozioOnlineTemplate.pdb
+/Users/ncdaam/Desktop/template_esame_negozio_online/obj/Debug/net8.0/NegozioOnlineTemplate.genruntimeconfig.cache
+/Users/ncdaam/Desktop/template_esame_negozio_online/obj/Debug/net8.0/ref/NegozioOnlineTemplate.dll
