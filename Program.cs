@@ -233,10 +233,12 @@ public class ElementoCarrello
 
     public void CambiaQuantitaScelta(int nuovaQuantita)
     {
-        // TODO: validare che la nuova quantità sia maggiore di zero.
-        // Se è valida, aggiornare QuantitaScelta.
-        // Se non è valida, lanciare ArgumentException con un messaggio comprensibile.
-        throw new NotImplementedException("Completare il metodo CambiaQuantitaScelta.");
+        if (nuovaQuantita <= 0)
+        {
+            throw new ArgumentException("La quantità scelta deve essere maggiore di zero.");
+        }
+
+        QuantitaScelta = nuovaQuantita;
     }
 }
 
@@ -304,9 +306,15 @@ public class CatalogoProdotti : IGestioneCatalogo
 
     public bool EliminaProdotto(string codiceProdotto)
     {
-        // TODO: cercare il prodotto tramite codice e rimuoverlo dalla lista.
-        // Restituire true se il prodotto è stato eliminato, false se non esiste.
-        throw new NotImplementedException("Completare il metodo EliminaProdotto.");
+        Prodotto? prodotto = CercaProdottoPerCodice(codiceProdotto);
+
+        if (prodotto == null)
+        {
+            return false;
+        }
+
+        prodotti.Remove(prodotto);
+        return true;
     }
 
     public Prodotto? CercaProdottoPerCodice(string codiceProdotto)
@@ -324,16 +332,28 @@ public class CatalogoProdotti : IGestioneCatalogo
 
     public bool ModificaPrezzoProdotto(string codiceProdotto, decimal nuovoPrezzo)
     {
-        // TODO: trovare il prodotto e chiamare prodotto.CambiaPrezzo(nuovoPrezzo).
-        // Restituire false se il codice non esiste.
-        throw new NotImplementedException("Completare il metodo ModificaPrezzoProdotto.");
+        Prodotto? prodotto = CercaProdottoPerCodice(codiceProdotto);
+
+        if (prodotto == null)
+        {
+            return false;
+        }
+
+        prodotto.CambiaPrezzo(nuovoPrezzo);
+        return true;
     }
 
     public bool ModificaQuantitaProdotto(string codiceProdotto, int variazioneQuantita)
     {
-        // TODO: trovare il prodotto e chiamare prodotto.CambiaQuantita(variazioneQuantita).
-        // La variazione può essere positiva o negativa, ma il magazzino non deve scendere sotto zero.
-        throw new NotImplementedException("Completare il metodo ModificaQuantitaProdotto.");
+        Prodotto? prodotto = CercaProdottoPerCodice(codiceProdotto);
+
+        if (prodotto == null)
+        {
+            return false;
+        }
+
+        prodotto.CambiaQuantita(variazioneQuantita);
+        return true;
     }
 }
 

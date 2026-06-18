@@ -1,0 +1,15 @@
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\bin\Debug\net8.0\NegozioOnlineTemplate.exe
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\bin\Debug\net8.0\NegozioOnlineTemplate.deps.json
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\bin\Debug\net8.0\NegozioOnlineTemplate.runtimeconfig.json
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\bin\Debug\net8.0\NegozioOnlineTemplate.dll
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\bin\Debug\net8.0\NegozioOnlineTemplate.pdb
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\obj\Debug\net8.0\NegozioOnlineTemplate.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\obj\Debug\net8.0\NegozioOnlineTemplate.AssemblyInfoInputs.cache
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\obj\Debug\net8.0\NegozioOnlineTemplate.AssemblyInfo.cs
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\obj\Debug\net8.0\NegozioOnlineTemplate.csproj.CoreCompileInputs.cache
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\obj\Debug\net8.0\NegozioOnlineTemplate.sourcelink.json
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\obj\Debug\net8.0\NegozioOnlineTemplate.dll
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\obj\Debug\net8.0\refint\NegozioOnlineTemplate.dll
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\obj\Debug\net8.0\NegozioOnlineTemplate.pdb
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\obj\Debug\net8.0\NegozioOnlineTemplate.genruntimeconfig.cache
+C:\Users\UTENTE\Desktop\simulazione_C#_3\demo-prova-esame\obj\Debug\net8.0\ref\NegozioOnlineTemplate.dll
