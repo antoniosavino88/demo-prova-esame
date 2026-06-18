@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trascrizione chat – Negozio Online C#</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #7dd3fc;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 2.5rem;
+    }
+
+    .chat {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .msg {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+    }
+
+    .msg.user { flex-direction: row-reverse; }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .msg.user .avatar  { background: #3b82f6; color: #fff; }
+    .msg.assistant .avatar { background: #7c3aed; color: #fff; }
+
+    .bubble {
+      max-width: 78%;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+
+    .msg.user .bubble {
+      background: #1e3a5f;
+      border-top-right-radius: 2px;
+    }
+
+    .msg.assistant .bubble {
+      background: #1e1e2e;
+      border: 1px solid #2d2d44;
+      border-top-left-radius: 2px;
+    }
+
+    .bubble p { margin-top: 0.4rem; }
+    .bubble p:first-child { margin-top: 0; }
+
+    .bubble code {
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.82rem;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 0.1rem 0.35rem;
+      color: #e6edf3;
+    }
+
+    .bubble pre {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      overflow-x: auto;
+      margin-top: 0.6rem;
+    }
+
+    .bubble pre code {
+      background: transparent;
+      border: none;
+      padding: 0;
+      font-size: 0.8rem;
+      line-height: 1.55;
+      color: #e6edf3;
+    }
+
+    .label {
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-bottom: 0.25rem;
+      padding: 0 0.1rem;
+    }
+    .msg.user .label { text-align: right; }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      margin-bottom: 0.35rem;
+    }
+    .tag-method { background: #1e3a5f; color: #7dd3fc; }
+    .tag-ui     { background: #2d1b4e; color: #c084fc; }
+  </style>
+</head>
+<body>
+
+<h1>Negozio Online — Sessione di sviluppo C#</h1>
+<p class="subtitle">Trascrizione della chat · 18 giugno 2026</p>
+
+<div class="chat">
+
+  <!-- 1 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p>Dobbiamo risolvere questo esercizio assieme, in base al readme e ai commenti in program dobbiamo risolvere diversi task. Iniziamo da <code>ElementoCarrello.CambiaQuantitaScelta</code>.</p>
+        <p>Il metodo deve controllare se la quantità ricevuta è &lt;= 0, nel caso lancia <code>ArgumentException</code> con un messaggio chiaro; altrimenti aggiorna <code>QuantitaScelta</code>.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">ElementoCarrello.CambiaQuantitaScelta</span>
+        <p>Implementato seguendo lo stesso stile di <code>Prodotto.CambiaPrezzo</code> già presente nel progetto.</p>
+        <pre><code>public void CambiaQuantitaScelta(int nuovaQuantita)
+{
+    if (nuovaQuantita &lt;= 0)
+    {
+        throw new ArgumentException("La quantità scelta deve essere maggiore di zero.");
+    }
+
+    QuantitaScelta = nuovaQuantita;
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>CatalogoProdotti.EliminaProdotto</code>: cerca il prodotto; se esiste rimuovilo dalla lista interna e ritorna <code>true</code>, altrimenti <code>false</code>.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">CatalogoProdotti.EliminaProdotto</span>
+        <p>Riusa <code>CercaProdottoPerCodice</code> già disponibile nella classe (che gestisce la case-insensitivity).</p>
+        <pre><code>public bool EliminaProdotto(string codiceProdotto)
+{
+    Prodotto? prodotto = CercaProdottoPerCodice(codiceProdotto);
+
+    if (prodotto == null)
+    {
+        return false;
+    }
+
+    prodotti.Remove(prodotto);
+    return true;
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>ModificaPrezzoProdotto</code>: trova e chiama <code>prodotto.CambiaPrezzo(nuovoPrezzo)</code> (la validazione del prezzo positivo è già dentro <code>CambiaPrezzo</code>, non riscriverla). Ritorna <code>true</code>, se il codice è inesistente ritorna <code>false</code>.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">CatalogoProdotti.ModificaPrezzoProdotto</span>
+        <pre><code>public bool ModificaPrezzoProdotto(string codiceProdotto, decimal nuovoPrezzo)
+{
+    Prodotto? prodotto = CercaProdottoPerCodice(codiceProdotto);
+
+    if (prodotto == null)
+    {
+        return false;
+    }
+
+    prodotto.CambiaPrezzo(nuovoPrezzo);
+    return true;
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>ModificaQuantitaProdotto</code>: trova e chiama <code>prodotto.CambiaQuantita(variazione)</code>. La variazione può essere negativa, ma la protezione "non sotto zero" è già in <code>CambiaQuantita</code>.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">CatalogoProdotti.ModificaQuantitaProdotto</span>
+        <pre><code>public bool ModificaQuantitaProdotto(string codiceProdotto, int variazioneQuantita)
+{
+    Prodotto? prodotto = CercaProdottoPerCodice(codiceProdotto);
+
+    if (prodotto == null)
+    {
+        return false;
+    }
+
+    prodotto.CambiaQuantita(variazioneQuantita);
+    return true;
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>AggiungiAlCarrello</code>: prima i controlli (<code>quantita &lt;= 0 → false</code>; <code>quantita &gt; QuantitaDisponibile → false</code>). Poi controlla se nel carrello c'è già una riga con quel codice. Se c'è: calcola quantità esistente + nuova e confrontala con la disponibilità; se sfora → false, altrimenti aggiorna la riga con <code>CambiaQuantitaScelta</code>. Se non c'è: crea un nuovo <code>ElementoCarrello</code> e aggiungilo. Ritorna <code>true</code>.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">CarrelloUtente.AggiungiAlCarrello</span>
+        <pre><code>public bool AggiungiAlCarrello(Prodotto prodotto, int quantita)
+{
+    if (quantita &lt;= 0) return false;
+    if (quantita &gt; prodotto.QuantitaDisponibile) return false;
+
+    ElementoCarrello? elementoEsistente = elementiCarrello
+        .FirstOrDefault(e =&gt; e.ProdottoSelezionato.CodiceProdotto == prodotto.CodiceProdotto);
+
+    if (elementoEsistente != null)
+    {
+        int nuovaQuantitaTotale = elementoEsistente.QuantitaScelta + quantita;
+        if (nuovaQuantitaTotale &gt; prodotto.QuantitaDisponibile) return false;
+        elementoEsistente.CambiaQuantitaScelta(nuovaQuantitaTotale);
+    }
+    else
+    {
+        elementiCarrello.Add(new ElementoCarrello(prodotto, quantita));
+    }
+
+    return true;
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>ModificaQuantitaNelCarrello</code>: cerca la riga per codice; se assente → false. Poi valida la nuova quantità: &lt;= 0 → false, oltre la disponibilità del prodotto → false, altrimenti <code>CambiaQuantitaScelta</code> e <code>true</code>.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">CarrelloUtente.ModificaQuantitaNelCarrello</span>
+        <pre><code>public bool ModificaQuantitaNelCarrello(string codiceProdotto, int nuovaQuantita)
+{
+    ElementoCarrello? elemento = elementiCarrello
+        .FirstOrDefault(e =&gt; e.ProdottoSelezionato.CodiceProdotto == codiceProdotto);
+
+    if (elemento == null) return false;
+    if (nuovaQuantita &lt;= 0) return false;
+    if (nuovaQuantita &gt; elemento.ProdottoSelezionato.QuantitaDisponibile) return false;
+
+    elemento.CambiaQuantitaScelta(nuovaQuantita);
+    return true;
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>RimuoviDalCarrello</code>: trova la riga per codice, rimuovila e ritorna <code>true</code>; se non c'è, <code>false</code>.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">CarrelloUtente.RimuoviDalCarrello</span>
+        <pre><code>public bool RimuoviDalCarrello(string codiceProdotto)
+{
+    ElementoCarrello? elemento = elementiCarrello
+        .FirstOrDefault(e =&gt; e.ProdottoSelezionato.CodiceProdotto == codiceProdotto);
+
+    if (elemento == null) return false;
+
+    elementiCarrello.Remove(elemento);
+    return true;
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>StoricoAcquisti.OttieniAcquistiPerUtente</code>: filtra la lista interna con <code>StringComparison.OrdinalIgnoreCase</code>. Restituisci una <code>List</code> con i risultati.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">StoricoAcquisti.OttieniAcquistiPerUtente</span>
+        <pre><code>public List&lt;Acquisto&gt; OttieniAcquistiPerUtente(string nomeUtente)
+{
+    return acquisti
+        .Where(a =&gt; a.NomeUtente.Equals(nomeUtente, StringComparison.OrdinalIgnoreCase))
+        .ToList();
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>ServizioNegozio.AggiungiProdottoAlCarrello</code>: cerca il prodotto nel catalogo; se null → false; altrimenti delega a <code>carrelloUtente.AggiungiAlCarrello(prodotto, quantita)</code> e ritorna il bool che ti fornisce.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">ServizioNegozio.AggiungiProdottoAlCarrello</span>
+        <pre><code>public bool AggiungiProdottoAlCarrello(string codiceProdotto, int quantita)
+{
+    Prodotto? prodotto = catalogoProdotti.CercaProdottoPerCodice(codiceProdotto);
+
+    if (prodotto == null) return false;
+
+    return carrelloUtente.AggiungiAlCarrello(prodotto, quantita);
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>LeggiInteroPositivo</code> / <code>LeggiPrezzoPositivo</code>: ciclo che stampa il messaggio, legge, prova <code>int.TryParse</code> / <code>decimal.TryParse</code>, accetta solo valori &gt; 0, altrimenti rilancia la richiesta.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">LeggiInteroPositivo / LeggiPrezzoPositivo</span>
+        <pre><code>private int LeggiInteroPositivo(string messaggio)
+{
+    while (true)
+    {
+        Console.Write(messaggio);
+        string input = Console.ReadLine() ?? string.Empty;
+        if (int.TryParse(input, out int valore) &amp;&amp; valore &gt; 0)
+            return valore;
+        UI.Errore("Valore non valido. Inserire un numero intero maggiore di zero.");
+    }
+}
+
+private decimal LeggiPrezzoPositivo(string messaggio)
+{
+    while (true)
+    {
+        Console.Write(messaggio);
+        string input = Console.ReadLine() ?? string.Empty;
+        if (decimal.TryParse(input, out decimal valore) &amp;&amp; valore &gt; 0)
+            return valore;
+        UI.Errore("Valore non valido. Inserire un prezzo maggiore di zero.");
+    }
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>MostraCatalogo</code>, <code>MostraCarrello</code>, <code>MostraStoricoUtente</code>, <code>StampaAcquisto</code>, <code>StampaReportProdotti</code>: pura lettura e stampa. Recupera i dati dai metodi già pronti e cicli stampando i campi richiesti. Gestisci sempre il caso lista vuota.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">5 metodi di visualizzazione</span>
+        <p>Tutti e 5 implementati usando i metodi già pronti (<code>OttieniTuttiIProdotti</code>, <code>OttieniElementi</code> + <code>CalcolaTotale</code>, <code>OttieniAcquistiPerUtente</code>, <code>CreaReportProdotti</code>). Ogni metodo gestisce il caso lista vuota con un messaggio esplicito.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>ScegliRuolo</code>: legge una riga, normalizza con <code>Trim().ToLower()</code>, accetta solo utente / amministratore / esci, altrimenti richiede.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">ScegliRuolo</span>
+        <p>Ciclo <code>while(true)</code> con validazione e normalizzazione dell'input.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>GestisciMenuUtente</code>: loop con le voci della traccia (catalogo, aggiungi al carrello tramite <code>servizioNegozio.AggiungiProdottoAlCarrello</code> + i lettori, mostra carrello, modifica/rimuovi/svuota, conferma acquisto chiedendo il nome utente, mostra storico). Una voce dedicata esce dal loop.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">GestisciMenuUtente</span>
+        <p>Implementato con <code>while(!esci)</code> e <code>switch</code> su stringa. Voci 1–8 + 0 per uscire. Il <code>case "7"</code> (conferma acquisto) gestisce <code>InvalidOperationException</code> con try/catch per non far crashare il menu.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>GestisciMenuAmministratore</code>: stessa struttura, con catalogo, aggiungi/elimina prodotto, modifica prezzo, modifica quantità, tutti gli acquisti, report.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">GestisciMenuAmministratore</span>
+        <p>Stessa struttura del menu utente. Voci 1–7 + 0. I casi che possono lanciare eccezioni (<code>AggiungiProdotto</code>, <code>ModificaPrezzoProdotto</code>, <code>ModificaQuantitaProdotto</code>) sono wrappati in try/catch. La variazione di quantità accetta interi sia positivi che negativi (diversi da zero).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p><code>Avvia</code>: fornire il benvenuto, poi loop che chiama <code>ScegliRuolo</code> e instrada al menu giusto, uscendo su "esci".</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">Avvia</span>
+        <pre><code>public void Avvia()
+{
+    UI.Successo("Benvenuto nel Negozio Online!");
+
+    while (true)
+    {
+        string ruolo = ScegliRuolo();
+
+        switch (ruolo)
+        {
+            case "utente":        GestisciMenuUtente();         break;
+            case "amministratore": GestisciMenuAmministratore(); break;
+            case "esci":
+                Console.WriteLine("Arrivederci!");
+                return;
+        }
+    }
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 16 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p>Nella scelta del ruolo preferire che l'utente scegliesse attraverso un menù a numeri 1, 2 e 3.</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-method">ScegliRuolo — revisione</span>
+        <p><code>ScegliRuolo</code> aggiornato: stampa le tre opzioni numerate e usa uno <code>switch</code> sulla cifra inserita per restituire la stringa di ruolo corrispondente.</p>
+        <pre><code>UI.Menu("\n1. Utente");
+UI.Menu("2. Amministratore");
+UI.Menu("3. Esci");
+UI.Prompt("Scelta: ");</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 17 -->
+  <div class="msg user">
+    <div>
+      <div class="label">Utente</div>
+      <div class="bubble">
+        <p>È possibile differenziare i menù dagli output con un colore diverso?</p>
+      </div>
+    </div>
+    <div class="avatar">U</div>
+  </div>
+
+  <div class="msg assistant">
+    <div class="avatar">AI</div>
+    <div>
+      <div class="label">Claude</div>
+      <div class="bubble">
+        <span class="tag tag-ui">Classe UI — colori console</span>
+        <p>Aggiunta la classe statica <code>UI</code> con quattro helper. Schema colori applicato a tutti i metodi:</p>
+        <pre><code>public static class UI
+{
+    public static void Menu(string testo)    // Ciano
+    public static void Successo(string testo) // Verde
+    public static void Errore(string testo)   // Rosso
+    public static void Prompt(string testo)   // Giallo (Console.Write)
+}</code></pre>
+        <table style="font-size:0.8rem; border-collapse:collapse; margin-top:0.6rem; width:100%">
+          <thead>
+            <tr>
+              <th style="text-align:left; padding:4px 8px; border-bottom:1px solid #333; color:#7dd3fc">Colore</th>
+              <th style="text-align:left; padding:4px 8px; border-bottom:1px solid #333; color:#7dd3fc">Uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:4px 8px; color:#22d3ee">Ciano</td><td style="padding:4px 8px">Header e voci di menu</td></tr>
+            <tr><td style="padding:4px 8px; color:#facc15">Giallo</td><td style="padding:4px 8px">Prompt di input</td></tr>
+            <tr><td style="padding:4px 8px; color:#4ade80">Verde</td><td style="padding:4px 8px">Messaggi di successo, totali</td></tr>
+            <tr><td style="padding:4px 8px; color:#f87171">Rosso</td><td style="padding:4px 8px">Errori, liste vuote, input non validi</td></tr>
+            <tr><td style="padding:4px 8px; color:#e2e8f0">Bianco</td><td style="padding:4px 8px">Dati (righe prodotti, carrello, ecc.)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /chat -->
+</body>
+</html>
