@@ -402,11 +402,26 @@ public class CarrelloUtente : IGestioneCarrello
 
     public bool ModificaQuantitaNelCarrello(string codiceProdotto, int nuovaQuantita)
     {
-        // TODO: trovare l'elemento del carrello e modificarne la quantità.
-        // Regole:
-        // - nuovaQuantita deve essere > 0;
-        // - nuovaQuantita non deve superare la disponibilità del prodotto.
-        throw new NotImplementedException("Completare il metodo ModificaQuantitaNelCarrello.");
+        ElementoCarrello? elemento = elementiCarrello
+            .FirstOrDefault(e => e.ProdottoSelezionato.CodiceProdotto == codiceProdotto);
+
+        if (elemento == null)
+        {
+            return false;
+        }
+
+        if (nuovaQuantita <= 0)
+        {
+            return false;
+        }
+
+        if (nuovaQuantita > elemento.ProdottoSelezionato.QuantitaDisponibile)
+        {
+            return false;
+        }
+
+        elemento.CambiaQuantitaScelta(nuovaQuantita);
+        return true;
     }
 
     public bool RimuoviDalCarrello(string codiceProdotto)
