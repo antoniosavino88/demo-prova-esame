@@ -426,9 +426,16 @@ public class CarrelloUtente : IGestioneCarrello
 
     public bool RimuoviDalCarrello(string codiceProdotto)
     {
-        // TODO: rimuovere dal carrello l'elemento con il codice indicato.
-        // Restituire true se rimosso, false se non trovato.
-        throw new NotImplementedException("Completare il metodo RimuoviDalCarrello.");
+        ElementoCarrello? elemento = elementiCarrello
+            .FirstOrDefault(e => e.ProdottoSelezionato.CodiceProdotto == codiceProdotto);
+
+        if (elemento == null)
+        {
+            return false;
+        }
+
+        elementiCarrello.Remove(elemento);
+        return true;
     }
 
     public void SvuotaCarrello()
@@ -473,9 +480,9 @@ public class StoricoAcquisti : IGestioneAcquisti
 
     public List<Acquisto> OttieniAcquistiPerUtente(string nomeUtente)
     {
-        // TODO: filtrare gli acquisti per nome utente.
-        // Consiglio: usare StringComparison.OrdinalIgnoreCase per ignorare maiuscole/minuscole.
-        throw new NotImplementedException("Completare il metodo OttieniAcquistiPerUtente.");
+        return acquisti
+            .Where(a => a.NomeUtente.Equals(nomeUtente, StringComparison.OrdinalIgnoreCase))
+            .ToList();
     }
 }
 
