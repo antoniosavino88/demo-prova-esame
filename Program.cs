@@ -101,39 +101,90 @@ public class ApplicazioneNegozio
 
     private void MostraCatalogo()
     {
-        // TODO: stampare a video tutti i prodotti.
-        // Usare catalogoProdotti.OttieniTuttiIProdotti().
-        // Per ogni prodotto mostrare codice, nome, prezzo e quantità disponibile.
-        throw new NotImplementedException("Completare il metodo MostraCatalogo.");
+        List<Prodotto> prodotti = catalogoProdotti.OttieniTuttiIProdotti();
+
+        if (prodotti.Count == 0)
+        {
+            Console.WriteLine("Il catalogo è vuoto.");
+            return;
+        }
+
+        Console.WriteLine("=== CATALOGO PRODOTTI ===");
+        foreach (Prodotto p in prodotti)
+        {
+            Console.WriteLine($"[{p.CodiceProdotto}] {p.Nome} - €{p.Prezzo:F2} - Disponibili: {p.QuantitaDisponibile}");
+        }
     }
 
     private void MostraCarrello()
     {
-        // TODO: stampare contenuto del carrello e totale.
-        // Usare carrelloUtente.OttieniElementi() e carrelloUtente.CalcolaTotale().
-        // Se il carrello è vuoto, mostrare un messaggio chiaro.
-        throw new NotImplementedException("Completare il metodo MostraCarrello.");
+        List<ElementoCarrello> elementi = carrelloUtente.OttieniElementi();
+
+        if (elementi.Count == 0)
+        {
+            Console.WriteLine("Il carrello è vuoto.");
+            return;
+        }
+
+        Console.WriteLine("=== CARRELLO ===");
+        foreach (ElementoCarrello e in elementi)
+        {
+            Console.WriteLine($"[{e.ProdottoSelezionato.CodiceProdotto}] {e.ProdottoSelezionato.Nome} - Qtà: {e.QuantitaScelta} x €{e.PrezzoUnitario:F2} = €{e.CalcolaTotaleParziale():F2}");
+        }
+
+        Console.WriteLine($"TOTALE: €{carrelloUtente.CalcolaTotale():F2}");
     }
 
     private void MostraStoricoUtente()
     {
-        // TODO: chiedere il nome utente e stampare solo gli acquisti collegati a quel nome.
-        // Usare storicoAcquisti.OttieniAcquistiPerUtente(nomeUtente).
-        throw new NotImplementedException("Completare il metodo MostraStoricoUtente.");
+        Console.Write("Inserire il nome utente: ");
+        string nomeUtente = Console.ReadLine() ?? string.Empty;
+
+        List<Acquisto> acquisti = storicoAcquisti.OttieniAcquistiPerUtente(nomeUtente);
+
+        if (acquisti.Count == 0)
+        {
+            Console.WriteLine($"Nessun acquisto trovato per l'utente '{nomeUtente}'.");
+            return;
+        }
+
+        Console.WriteLine($"=== STORICO ACQUISTI DI {nomeUtente} ===");
+        foreach (Acquisto a in acquisti)
+        {
+            servizioNegozio.StampaAcquisto(a);
+        }
     }
 
     private int LeggiInteroPositivo(string messaggio)
     {
-        // TODO: leggere un numero intero positivo da console.
-        // Continuare a chiedere il valore finché l'utente non inserisce un intero > 0.
-        throw new NotImplementedException("Completare il metodo LeggiInteroPositivo.");
+        while (true)
+        {
+            Console.Write(messaggio);
+            string input = Console.ReadLine() ?? string.Empty;
+
+            if (int.TryParse(input, out int valore) && valore > 0)
+            {
+                return valore;
+            }
+
+            Console.WriteLine("Valore non valido. Inserire un numero intero maggiore di zero.");
+        }
     }
 
     private decimal LeggiPrezzoPositivo(string messaggio)
     {
-        // TODO: leggere un prezzo positivo da console.
-        // Usare decimal.TryParse e rifiutare valori minori o uguali a zero.
-        throw new NotImplementedException("Completare il metodo LeggiPrezzoPositivo.");
+        while (true)
+        {
+            Console.Write(messaggio);
+            string input = Console.ReadLine() ?? string.Empty;
+
+            if (decimal.TryParse(input, out decimal valore) && valore > 0)
+            {
+                return valore;
+            }
+
+            Console.WriteLine("Valore non valido. Inserire un prezzo maggiore di zero.");
+        }
     }
 }
 
@@ -575,16 +626,31 @@ public class ServizioNegozio
 
     public void StampaAcquisto(Acquisto acquisto)
     {
-        // TODO: stampare i dettagli di un acquisto.
-        // Mostrare nome utente, data, prodotti, quantità, prezzi e totale ordine.
-        throw new NotImplementedException("Completare il metodo StampaAcquisto.");
+        Console.WriteLine($"Utente: {acquisto.NomeUtente} - Data: {acquisto.DataAcquisto:dd/MM/yyyy HH:mm}");
+
+        foreach (ElementoAcquistato ea in acquisto.ProdottiAcquistati)
+        {
+            Console.WriteLine($"  [{ea.CodiceProdotto}] {ea.NomeProdotto} - Qtà: {ea.QuantitaAcquistata} x €{ea.PrezzoUnitario:F2} = €{ea.TotaleParziale:F2}");
+        }
+
+        Console.WriteLine($"  Totale ordine: €{acquisto.TotaleOrdine:F2}");
     }
 
     public void StampaReportProdotti()
     {
-        // TODO: usare CreaReportProdotti() e stampare una riga per ogni prodotto.
-        // La riga deve contenere quantità iniziale, quantità venduta e quantità disponibile.
-        throw new NotImplementedException("Completare il metodo StampaReportProdotti.");
+        List<ReportProdotto> report = CreaReportProdotti();
+
+        if (report.Count == 0)
+        {
+            Console.WriteLine("Nessun prodotto nel catalogo.");
+            return;
+        }
+
+        Console.WriteLine("=== REPORT PRODOTTI ===");
+        foreach (ReportProdotto r in report)
+        {
+            Console.WriteLine($"[{r.CodiceProdotto}] {r.NomeProdotto} - Iniziale: {r.QuantitaIniziale} | Venduta: {r.QuantitaVenduta} | Disponibile: {r.QuantitaDisponibile}");
+        }
     }
 }
 
