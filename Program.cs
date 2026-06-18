@@ -501,9 +501,14 @@ public class ServizioNegozio
 
     public bool AggiungiProdottoAlCarrello(string codiceProdotto, int quantita)
     {
-        // TODO: cercare il prodotto nel catalogo e delegare a carrelloUtente.AggiungiAlCarrello.
-        // Restituire false se il prodotto non esiste o se la quantità non è valida.
-        throw new NotImplementedException("Completare il metodo AggiungiProdottoAlCarrello.");
+        Prodotto? prodotto = catalogoProdotti.CercaProdottoPerCodice(codiceProdotto);
+
+        if (prodotto == null)
+        {
+            return false;
+        }
+
+        return carrelloUtente.AggiungiAlCarrello(prodotto, quantita);
     }
 
     public Acquisto ConfermaAcquisto(string nomeUtente)
